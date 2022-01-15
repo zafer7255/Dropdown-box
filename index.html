@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+<section> 
+    <nav>
+         <div class="header" id="Header" > 
+            <ul> 
+                <li><a href="">HOME</a></li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">CONTACT</a></li>
+                <li><a href="">JOIN</a></li>
+                <li><a href="">PURCHASE</a></li>
+            </ul>
+          </div>
+      </nav>
+      <section class="dropdownbox" >
+       
+      <div class="container">
+        <h2>Patient Name</h2>
+  
+        <div class="select-box">
+          <div class="options-container">
+            <div class="option">
+              <input
+                type="radio"
+                class="radio"
+                id="automobiles"
+                name="category"
+              />
+              <label for="Patient 1">Ajay Kumar</label> <p class="Meet" >Appointment</p>
+              <h1><ul class="logo2" ><img src="images/logo2.png" alt="">|32|male|7364581928|Delhi</ul></h1>
+            </div>
+  
+            <div class="option">
+              <input type="radio" class="radio" id="film" name="category" />
+              <label for="patient 2">Seema Kumari</label><p class="Meet2" >Patient</p>
+              <h1><ul class="logo1" ><img src="images/logo1.png" alt="">|32|female|7364581928|Ranchi</ul></h1>
+            </div>
+  
+            <div class="option">
+              <input type="radio" class="radio" id="science" name="category" />
+              <label for="patient 3">Arun Sharma</label><p class="Meet3" >New</p>
+              <h1><ul class="logo2" ><img src="images/logo2.png" alt="">|32|male|7364581928|Goa</ul></h1>
+            </div>
+  
+            <div class="option">
+              <input type="radio" class="radio" id="art" name="category" />
+              <label for="patient 5">Akash Kumar</label><p class="Meet" >Appointment</p>
+              <h1><ul class="logo2" ><img src="images/logo2.png" alt="">|32|male|7364581928|Japla</ul></h1>
+            </div>
+  
+            <div class="option">
+              <input type="radio" class="radio" id="music" name="category" />
+              <label for="patient 6">Amar Kumar</label><p class="Meet2" >Patient</p>
+              <h1><ul class="logo2" ><img src="images/logo2.png" alt="">|32|male|7364581928|Patna</ul></h1>
+            </div>
+  
+            <div class="option">
+              <input type="radio" class="radio" id="travel" name="category" />
+              <label for="patient 7">Tinku Sharma</label><p class="Meet3" >New</p>
+              <h1><ul class="logo2" ><img src="images/logo2.png" alt="">|32|male|7364581928|Mumbai</ul></h1>
+            </div>
+  
+            <div class="option">
+              <input type="radio" class="radio" id="sports" name="category" />
+              <label for="patient 9">Supriya Kumari</label><p class="Meet3" >New</p>
+              <h1><ul class="logo1" ><img src="images/logo1.png" alt="">|32|female|7364581928|Kolkata</ul></h1>
+            </div>
+  
+            <div class="option">
+              <input type="radio" class="radio" id="news" name="category" />
+              <label for="patient 10">Nawneet Kumar</label><p class="Meet" >Appointment</p>
+              <h1><ul class="logo2" ><img src="images/logo2.png" alt="">|32|male|7364581928|Jaipur</ul></h1>
+            </div>
+  
+            <div class="option">
+              <input type="radio" class="radio" id="tutorials" name="category" />
+              <label for="patient 11">Tarun Kumar</label><p class="Meet" >Appointment</p>
+              <h1><ul class="logo2" ><img src="images/logo2.png" alt="">|32|male|7364581928|Kanpur</ul></h1>
+            </div>
+          </div>
+          
+  
+          <div class="selected">
+            Select Your Name
+          </div>
+  
+          <div class="search-box">
+            <input type="text" placeholder="Type Patient Name..." />
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <script>
+        const selected = document.querySelector(".selected");
+const optionsContainer = document.querySelector(".options-container");
+const searchBox = document.querySelector(".search-box input");
+
+const optionsList = document.querySelectorAll(".option");
+
+selected.addEventListener("click", () => {
+  optionsContainer.classList.toggle("active");
+
+  searchBox.value = "";
+  filterList("");
+
+  if (optionsContainer.classList.contains("active")) {
+    searchBox.focus();
+  }
+});
+
+optionsList.forEach(o => {
+  o.addEventListener("click", () => {
+    selected.innerHTML = o.querySelector("label").innerHTML;
+    optionsContainer.classList.remove("active");
+  });
+});
+
+searchBox.addEventListener("keyup", function(e) {
+  filterList(e.target.value);
+});
+
+const filterList = searchTerm => {
+  searchTerm = searchTerm.toLowerCase();
+  optionsList.forEach(option => {
+    let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+    if (label.indexOf(searchTerm) != -1) {
+      option.style.display = "block";
+    } else {
+      option.style.display = "none";
+    }
+  });
+};
+
+ 
+
+      </script>
+
+    
+
+
+
+</body>
+</html>
